@@ -1,12 +1,10 @@
-// Assignment code here
-
 // Query Selectors
 var generateBtn = document.querySelector("#generate");
 var passwordText = document.querySelector("#password");
 
 // var pwdLength = 0;
-var lowercase = 'abcdefghijklmnopqrstuvwxyz';
-var uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+var caseLower = 'abcdefghijklmnopqrstuvwxyz';
+var caseUpper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 var numbers = '0123456789';
 var special = '!@#$%^&*()_+-=,./<>?[]{}`~';
 var charSet = "";
@@ -17,6 +15,7 @@ generateBtn.addEventListener("click", writePassword);
 
 // generate password function
 function generatePassword() {
+
 
   // choosing password criteria
   var pwdLength = prompt("Enter a password length of at least 8 characters and no more than 128 characters.");
@@ -31,12 +30,17 @@ function generatePassword() {
   var numSet = confirm("Do you want your password to contain numbers?");
   var specialSet = confirm("Do you want your password to contain special characters?");
 
+  if (lowerSet === false && upperSet === false && numSet === false && specialSet === false) {
+    alert("You must choose at least one password criteria.");
+    return;
+  }
+
   // using criteria to generate password
   if (lowerSet) {
-    charSet += lowercase;
+    charSet += caseLower;
   }
   if (upperSet) {
-    charSet += uppercase;
+    charSet += caseUpper;
   }
   if (numSet) {
     charSet += numbers;
@@ -48,12 +52,13 @@ function generatePassword() {
   for (i = 0; i < pwdLength; i++) {
     password += charSet[Math.floor(Math.random() * charSet.length)]
   } return password;
+  
+  
 }
 
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
-
 
   passwordText.value = password;
 }
