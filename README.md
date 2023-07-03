@@ -12,7 +12,7 @@ N/A
 
 ## Usage
 
-Access the webpage using the following [link]____________________
+Access the webpage using the following [link]https://trahy.github.io/w3-password-generator/
 
 Once redirected to the webpage, click on the "Generate Password" button.
 
