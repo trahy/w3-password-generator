@@ -7,7 +7,6 @@ var caseLower = 'abcdefghijklmnopqrstuvwxyz';
 var caseUpper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 var numbers = '0123456789';
 var special = '!@#$%^&*()_+-=,./<>?[]{}`~';
-var charSet = "";
 var password = "";
 
 // Add event listener to generate button
@@ -16,6 +15,7 @@ generateBtn.addEventListener("click", writePassword);
 // generate password function
 function generatePassword() {
 
+  var charSet = "";
 
   // choosing password criteria
   var pwdLength = prompt("Enter a password length of at least 8 characters and no more than 128 characters.");
@@ -49,11 +49,13 @@ function generatePassword() {
     charSet += special;
   }
 
+  var password = []
+
   for (i = 0; i < pwdLength; i++) {
     password += charSet[Math.floor(Math.random() * charSet.length)]
-  } return password;
-  
-  
+  }
+
+  return password;
 }
 
 // Write password to the #password input
